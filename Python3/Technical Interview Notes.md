@@ -1,12 +1,16 @@
 # Python3 Technical Interview Notes
-Notes for **Python3 interview basics** will be located here.  It will primarily consist of basic topics that are commonly tested on **technical interviews** such as string methods, integer methods, common data structures, common algorithms, and so on.  Will eventually include more complex things as my preparation goes further.  I will be including anything that I feel the need to have a 2nd look on before any technical interview.  This will likely be my most extensive technical interview notes page as I am currently focused on improving my python skills with the **goal of obtaining a data science or ML job** out of college.  Most of these notes will be the results of practicing technical questions on [LeetCode](https://leetcode.com/).  Check out the website, it is a great resource to prep for an interview in any language.  *These notes are for public use but please cite me (@TamasPalfi) if showcase it elsewhere as I have done with all the wonderful resources/people I have used to create this.*. 
+Notes for **Python3 interview tips** will be located here.  It will primarily consist of basic topics that are commonly tested on **technical interviews** such as string methods, integer methods, common data structures, common algorithms, and so on.  It might not include very basic information which is already known to me, and it will eventually include more complex things as my preparation goes further.  I will be including anything that I feel the need to have a 2nd look on before any technical interview.  This will likely be my most extensive technical interview notes page as I am currently focused on improving my python skills with the **goal of obtaining a data science or ML job** out of college.  Most of these notes will be the results of practicing technical questions on [LeetCode](https://leetcode.com/).  Check out the website, it is a great resource to prep for an interview in any language.  *These notes are for public use but please cite me (@TamasPalfi) if showcase it elsewhere as I have done with all the wonderful resources/people I have used to create this.*. 
 
 ## Good Technical Interview Practices
 - strongly consider stating and even writing out the brute force solution to a problem first if a better solution doesn't immediatly come to mind.  Important to solve the problem at hand first and then optimize.  However, this isn't always an option given the quick assessment times of many online tests.  Also, good choice to fall back to if cant find the best solution.
+- **Ask: Can I use a Dictionary/HashTable to solve this problem?**
+- think about time and space complexity always when solving a problem and how to optimize, AND usually in that order.  Most often you want to reduce time complexity but there are times where space considerations have to be made (not a lot of memory to work with or dealing with a lot of data)
 
 ## General 
 - *is* should be used for identity testing.  It is the same as id(a) == id(b).  *EX: Checking to see if a an element of a list matches an target object, you would use is.*
 - *==* is used for equality comparison/testing.  It would be used to see if two objects contain the same data.  *EX: Checking to see if two strings are equal to one another*
+- improve performance speed tips located [here](https://wiki.python.org/moin/PythonSpeed/PerformanceTips) **(TODO: Read thru this!!!)**
+- dont forget that python is written in C (well CPython actually) - if can't remember a certain important python 'thing' it would be wise to consider how that same thing works in C.
 
 ## Strings
 
@@ -15,6 +19,9 @@ Notes for **Python3 interview basics** will be located here.  It will primarily 
 ## Integers
 
 
+## Loops
+- **while** and **for** loops.  **while** should be used  when you want to loop until a certain condition is met.  **for** loop should be used when you have an iterable or know precisely how many times you would like the loop to iterate for. 
+- **NOTE:** each operation within a loop will be called for each iteration - thus, the best way to improve the runtime is to **keep your loops simple**.  Best solution would be to try to find solution w/o any looping but that's not always the case.
 
 ## Dictionaries
 - **BIG TIP TO NOTE:** Python's dictionaries are implemented as Hash Tables (and as such have same time/space complexities)!  See python documentation [here](https://docs.python.org/3/library/stdtypes.html#typesmapping)  Thus, I would recommend in interviews to use dictionaries as you are quite often more familiar with them due to it being one of the key data structures taught, but mention to the interviewer this distinction. 
@@ -22,7 +29,7 @@ Notes for **Python3 interview basics** will be located here.  It will primarily 
 - Key Difference between Dictionaries and HashTables:* Although dictionaries are fundamentally implemented with a HashTable they do have some key difference one of which will be highlighted here. It can be the case that the hash will end up being at the same spot in the table, if that's the case then for a hashtable it will (**TODO: Confirm this is correct**) create a list that will be stored at that location and several objects can be placed there with the ordering being determined by order of insertion.  That is why the worst case complexity can be O(N) for hash tables.  However, **dictionaries can only store one and only one entry in the slot table.**  Thus, it can be the case that the same hash is mapped to the same slot in the table in which first it would check if that slot is empty.  If it is, it fills that slot.  However, if it isn't then it will search for another empty slot to fill.  There are methods where in which the unused parts of the hash value will be used to search for other slots (**TODO: research this**). Also, there are many other ways to do this (**TODO: add different ways**) but common ones are linear search (it will look at the slots linearly following the slot the hash retrieved) or a **randomized search/random probing** (which Python uses!) that will search slots randomly until an empty one is found.  If all slots are full, then the hash function would return a fail.  This however is not usually the case due to how it would impact speed so often the dict/hashtable would be resized beforehand (**TODO: confirm this**) when it is typically 2/3 full.  Sources for this description include: [Source1](https://stackoverflow.com/questions/9010222/how-can-python-dict-have-multiple-keys-with-same-hash) and [Source2](https://stackoverflow.com/questions/327311/how-are-pythons-built-in-dictionaries-implemented).  **Please check out Source2 as 
 Praveen Gollakota has given a far better look into how Python Dictionaries work under the hood than I ever could.**
 - Again, **dictionaries can only store one and only one entry in the slot table.**
-- When a new dict is initiliazed it starts with 8 slots. [Source2](https://stackoverflow.com/questions/327311/how-are-pythons-built-in-dictionaries-implemented)
+- When a new dict is initiliazed it starts with 8 slots.  [Source2](https://stackoverflow.com/questions/327311/how-are-pythons-built-in-dictionaries-implemented)
 - Dictionaries uses **open addressing** to solve hash collisions.  It will search for other spots in the dict which is essentially stored as an array.  See more in the Hash tables section or here at [wiki page.](https://en.wikipedia.org/wiki/Hash_table#Open_addressing)
 
 
@@ -33,3 +40,4 @@ Praveen Gollakota has given a far better look into how Python Dictionaries work 
 
 
 ## Functions
+- **enumerate()** - when dealing with iterators often need the count as well.  This is python's built-in function for that purpose.  [Source](https://www.geeksforgeeks.org/enumerate-in-python/)
