@@ -47,3 +47,4 @@ Praveen Gollakota has given a far better look into how Python Dictionaries work 
 
 ## Functions
 - **enumerate()** - when dealing with iterators often need the count as well.  This is python's built-in function for that purpose.  [Source](https://www.geeksforgeeks.org/enumerate-in-python/)
+-Counter() - will go through an iterable and create a dict with elem:count as key:value pair
