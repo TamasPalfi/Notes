@@ -11,7 +11,7 @@ Notes for **Python3 interview tips** will be located here.  It will primarily co
 - *==* is used for equality comparison/testing.  It would be used to see if two objects contain the same data.  *EX: Checking to see if two strings are equal to one another*
 - improve performance speed tips located [here](https://wiki.python.org/moin/PythonSpeed/PerformanceTips) **(TODO: Read thru this!!!)**
 - dont forget that python is written in C (well CPython actually) - if can't remember a certain important python 'thing' it would be wise to consider how that same thing works in C.
-- if ask to not use a certain operator (+, -, * ..) then usually want you to use bit shiting (&, ^, <<).
+- if ask to not use a certain operator (+, -, * ..) then usually want you to use bit shifting (&, ^, <<).
 
 ## Strings
 
