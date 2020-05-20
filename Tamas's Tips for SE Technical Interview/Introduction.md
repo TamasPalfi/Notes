@@ -6,6 +6,6 @@ Hello!  If you somehow found your way to this review, then feel free to look at 
 2. Basics of Python
 3. Basics of Java
 4. Data Structures
-5. Big-O/Runtime & Space Analysis
+5. Big-O & Runtime & Space Analysis
 6. Algorithms
 
